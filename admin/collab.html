@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Home furniture at your price">
+    <meta name="author" content="Richfield Chairs">
+    <link rel="icon" href="../img/favicon-02.png" type="image/png" sizes="16x16">
+    <title>Dashboard - Richfield Chairs Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet" />family
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+</head>
+<body class="sb-nav-fixed">
+<!-- Preloader -->
+<div id="preloader">
+    <div class="loader"></div>
+    <div class="loader-text">Please wait</div>
+</div>
+<nav class="sb-topnav navbar navbar-expand navbar-dark bg-light">
+    <!-- Navbar Brand-->
+    <a class="navbar-brand ps-3" href="index.html"><img src = "../img/logo-01.png" height = "30px"></a>
+    <!-- Sidebar Toggle-->
+    <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+    <!-- Navbar Search-->
+    <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+        <div class="input-group">
+            <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+            <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+        </div>
+    </form>
+    <!-- Navbar-->
+    <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#!">Settings</a></li>
+                <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="../index.html">Logout</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+<div id="layoutSidenav">
+    <div id="layoutSidenav_nav">
+        <nav class="sb-sidenav accordion sb-sidenav-light" id="sidenavAccordion">
+            <div class="sb-sidenav-menu">
+                <div class="nav">
+                    <div class="sb-sidenav-menu-heading">Core</div>
+                    <a class="nav-link" href="index.html">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        Dashboard
+                    </a>
+                    <div class="sb-sidenav-menu-heading">Settings</div>
+                    <a class="nav-link collapsed" href="" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                        Website settings
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="web-set.html">General</a>
+                            <a class="nav-link" href="web-menu.html">Website Menu</a>
+                            <a class="nav-link" href="theme-set.html">Theme Setting</a>
+                            <a class="nav-link" href="content-set.html">Content Setting</a>
+                        </nav>
+                    </div>
+                    <a class="nav-link collapsed" href="" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                        <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                        Account
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                            <a class="nav-link collapsed" href="" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                                Customer
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="order.html">Order</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                                Admin
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="admin.html">Chat box</a>
+                                    <a class="nav-link" href="collab.html">Collaborations</a>
+                                </nav>
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="sb-sidenav-menu-heading">Addons</div>
+                    <a class="nav-link" href="charts.html">
+                        <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                        Charts
+                    </a>
+                    <a class="nav-link" href="tables.html">
+                        <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                        Tables
+                    </a>
+                </div>
+            </div>
+            <div class="sb-sidenav-footer">
+                <div class="small">Logged in as:</div>
+                Admin RFC
+            </div>
+        </nav>
+    </div>
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid px-4">
+                <h2 class="mt-4">Collaborations</h2>
+                <ol class="breadcrumb mb-4">
+                    <li class="breadcrumb-item">Admin</li>
+                    <li class="breadcrumb-item active">Collaborations</li>
+                </ol>
+                <div class = "row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="dropdown float-end">
+                                    <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="mdi mdi-dots-vertical"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-end">
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item">Delete</a>
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item">Block</a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-start">
+                                    <img src="https://i1.sndcdn.com/artworks-wX4XbW9yPxhhuUlu-SyQMzA-t500x500.jpg" class="rounded-circle avatar-lg img-thumbnail" alt="profile-image">
+                                    <div class="w-100 ms-3">
+                                        <h4 class="my-0">James Altucher</h4>
+                                        <p class="text-muted">@linkedininfluencer</p>
+                                    </div>
+                                </div>
+
+                                <div class="mt-3">
+                                    <h4 class="font-13 text-uppercase">About:</h4>
+                                    <p class="text-muted font-13 mb-3">
+                                        James is a Top 10 Linkedin Influencer, prolific writer, successful entrepreneur, chess master, and venture capitalist. He has started and sold several companies and is actively invested in, or advises, over 30 different companies in areas ranging from tech to energy to healthcare to biotech.
+                                    </p>
+                                    <p class="text-muted mb-2 font-13"><strong>Full Name:</strong> <span class="ms-2">James Altucher</span></p>
+
+                                    <p class="text-muted mb-2 font-13"><strong>Mobile:</strong><span class="ms-2">(123) 123 1234</span></p>
+
+                                    <p class="text-muted mb-2 font-13"><strong>Email:</strong> <span class="ms-2">jamesaltucher@hbo.com</span></p>
+
+                                    <p class="text-muted mb-1 font-13"><strong>Location:</strong> <span class="ms-2">USA</span></p>
+                                </div>
+
+                                <ul class="social-list list-inline mt-3 mb-0">
+                                    <li class="list-inline-item">
+                                        <a href="javascript: void(0);" class="social-list-item text-center border-primary text-primary"><i class="mdi mdi-facebook"></i></a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="javascript: void(0);" class="social-list-item text-center border-danger text-danger"><i class="mdi mdi-google"></i></a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="javascript: void(0);" class="social-list-item text-center border-info text-info"><i class="mdi mdi-twitter"></i></a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="javascript: void(0);" class="social-list-item text-center border-secondary text-secondary"><i class="mdi mdi-github"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="dropdown float-end">
+                                    <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="mdi mdi-dots-vertical"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-end">
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item">Delete</a>
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item">Block</a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-start">
+                                    <img src="https://www.incimages.com/uploaded_files/image/336x336/RyanHolmesauthorphoto_111541.jpg" class="rounded-circle avatar-lg img-thumbnail" alt="profile-image">
+                                    <div class="w-100 ms-3">
+                                        <h4 class="my-0">Ryan Holmes</h4>
+                                        <p class="text-muted">@startup</p>
+                                    </div>
+                                </div>
+
+                                <div class="mt-3">
+                                    <h4 class="font-13 text-uppercase">About:</h4>
+                                    <p class="text-muted font-13 mb-3">
+                                        A serial entrepreneur, Ryan Holmes opened a string of ventures—from a pizza restaurant to a digital media agency—before starting Hootsuite in 2008.
+                                        As founder and now a board member, he has helped grow Hootsuite into the world’s most widely used social relationship.
+                                    </p>
+                                    <p class="text-muted mb-2 font-13"><strong>Full Name:</strong> <span class="ms-2">Ryan Holmes</span></p>
+
+                                    <p class="text-muted mb-2 font-13"><strong>Mobile:</strong><span class="ms-2">(123) 123 1234</span></p>
+
+                                    <p class="text-muted mb-2 font-13"><strong>Email:</strong> <span class="ms-2">ryanholmes@hootsuite.com</span></p>
+
+                                    <p class="text-muted mb-1 font-13"><strong>Location:</strong> <span class="ms-2">USA</span></p>
+                                </div>
+
+                                <ul class="social-list list-inline mt-3 mb-0">
+                                    <li class="list-inline-item">
+                                        <a href="javascript: void(0);" class="social-list-item text-center border-primary text-primary"><i class="mdi mdi-facebook"></i></a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="javascript: void(0);" class="social-list-item text-center border-danger text-danger"><i class="mdi mdi-google"></i></a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="javascript: void(0);" class="social-list-item text-center border-info text-info"><i class="mdi mdi-twitter"></i></a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="javascript: void(0);" class="social-list-item text-center border-secondary text-secondary"><i class="mdi mdi-github"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class = "row mt-4">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="dropdown float-end">
+                                    <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="mdi mdi-dots-vertical"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-end">
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item">Delete</a>
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item">Block</a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-start">
+                                    <img src="https://www.masterclass.com/course-images/attachments/9LNKZkzJoKGMdQJw9huo3by7?width=400&height=400&fit=cover&dpr=2" class="rounded-circle avatar-lg img-thumbnail" alt="profile-image">
+                                    <div class="w-100 ms-3">
+                                        <h4 class="my-0">Sara Blakely</h4>
+                                        <p class="text-muted">@marketing</p>
+                                    </div>
+                                </div>
+
+                                <div class="mt-3">
+                                    <h4 class="font-13 text-uppercase">About:</h4>
+                                    <p class="text-muted font-13 mb-3">
+                                        I started SPANX in 2000 with $5,000 in personal savings. In 2006, I launched the SPANX Foundation to empower women through education, entrepreneurship and the arts. I believe the world will be a better place when the feminine and masculine energy on the planet are more in balance.
+                                    </p>
+                                    <p class="text-muted mb-2 font-13"><strong>Full Name:</strong> <span class="ms-2">Sara Blakely</span></p>
+
+                                    <p class="text-muted mb-2 font-13"><strong>Mobile:</strong><span class="ms-2">(123) 123 1234</span></p>
+
+                                    <p class="text-muted mb-2 font-13"><strong>Email:</strong> <span class="ms-2">sarablakely@spanx.com</span></p>
+
+                                    <p class="text-muted mb-1 font-13"><strong>Location:</strong> <span class="ms-2">USA</span></p>
+                                </div>
+
+                                <ul class="social-list list-inline mt-3 mb-0">
+                                    <li class="list-inline-item">
+                                        <a href="javascript: void(0);" class="social-list-item text-center border-primary text-primary"><i class="mdi mdi-facebook"></i></a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="javascript: void(0);" class="social-list-item text-center border-danger text-danger"><i class="mdi mdi-google"></i></a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="javascript: void(0);" class="social-list-item text-center border-info text-info"><i class="mdi mdi-twitter"></i></a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="javascript: void(0);" class="social-list-item text-center border-secondary text-secondary"><i class="mdi mdi-github"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="dropdown float-end">
+                                    <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="mdi mdi-dots-vertical"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-end">
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item">Delete</a>
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item">Block</a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-start">
+                                    <img src="http://eventostech.com.br/wp-content/uploads/2018/04/ann_handley-eventostech.jpg" class="rounded-circle avatar-lg img-thumbnail" alt="profile-image">
+                                    <div class="w-100 ms-3">
+                                        <h4 class="my-0">Ann Handley</h4>
+                                        <p class="text-muted">@bestsellingauthor</p>
+                                    </div>
+                                </div>
+
+                                <div class="mt-3">
+                                    <h4 class="font-13 text-uppercase">About:</h4>
+                                    <p class="text-muted font-13 mb-3">
+                                        Cited in Forbes as the most influential woman in Social Media and recognized by ForbesWoman as one of the top 20 women bloggers, Ann Handley is the Chief Content Officer of MarketingProfs, a training company that empowers marketers internationally.
+                                    </p>
+                                    <p class="text-muted mb-2 font-13"><strong>Full Name:</strong> <span class="ms-2">Ann Handley</span></p>
+
+                                    <p class="text-muted mb-2 font-13"><strong>Mobile:</strong><span class="ms-2">(123) 123 1234</span></p>
+
+                                    <p class="text-muted mb-2 font-13"><strong>Email:</strong> <span class="ms-2">annhandley@mkt.com</span></p>
+
+                                    <p class="text-muted mb-1 font-13"><strong>Location:</strong> <span class="ms-2">USA</span></p>
+                                </div>
+
+                                <ul class="social-list list-inline mt-3 mb-0">
+                                    <li class="list-inline-item">
+                                        <a href="javascript: void(0);" class="social-list-item text-center border-primary text-primary"><i class="mdi mdi-facebook"></i></a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="javascript: void(0);" class="social-list-item text-center border-danger text-danger"><i class="mdi mdi-google"></i></a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="javascript: void(0);" class="social-list-item text-center border-info text-info"><i class="mdi mdi-twitter"></i></a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="javascript: void(0);" class="social-list-item text-center border-secondary text-secondary"><i class="mdi mdi-github"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class = "row mt-4 mb-4">
+                    <div class="page-content page-container list-todo" id="page-content">
+                        <div class="padding">
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-md-12">
+                                    <div class="card px-3">
+                                        <div class="card-body">
+                                            <div class="add-items d-flex mt-4"> <input type="text" class="form-control todo-list-input" placeholder="Enter tasklist"> <button class="add btn btn-primary font-weight-bold todo-list-add-btn">Add</button> </div>
+                                            <div class="list-wrapper">
+                                                <ul class="d-flex flex-column-reverse todo-list">
+                                                    <li>
+                                                        <div class="form-check"> <label class="form-check-label"> <input class="checkbox" type="checkbox"> Interview with Architecture Digest <i class="input-helper"></i></label> </div> <i class="remove mdi mdi-close-circle-outline"></i>
+                                                    </li>
+                                                    <li class="completed">
+                                                        <div class="form-check"> <label class="form-check-label"> <input class="checkbox" type="checkbox" checked=""> Youtube upload with Sara Blakely <i class="input-helper"></i></label> </div> <i class="remove mdi mdi-close-circle-outline"></i>
+                                                    </li>
+                                                    <li>
+                                                        <div class="form-check"> <label class="form-check-label"> <input class="checkbox" type="checkbox"> Bartlett collaboration with Hootsuite <i class="input-helper"></i></label> </div> <i class="remove mdi mdi-close-circle-outline"></i>
+                                                    </li>
+                                                    <li>
+                                                        <div class="form-check"> <label class="form-check-label"> <input class="checkbox" type="checkbox"> Promotion on website <i class="input-helper"></i></label> </div> <i class="remove mdi mdi-close-circle-outline"></i>
+                                                    </li>
+                                                    <li class="completed">
+                                                        <div class="form-check"> <label class="form-check-label"> <input class="checkbox" type="checkbox" checked=""> Reply James Altucher's email <i class="input-helper"></i></label> </div> <i class="remove mdi mdi-close-circle-outline"></i>
+                                                    </li>
+                                                    <li>
+                                                        <div class="form-check"> <label class="form-check-label"> <input class="checkbox" type="checkbox"> Meeting with Ann Handley by Tuesday<i class="input-helper"></i></label> </div> <i class="remove mdi mdi-close-circle-outline"></i>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="py-4 bg-light mt-auto">
+            <div class="container-fluid px-4">
+                <div class="d-flex align-items-center justify-content-between small">
+                    <div class="text-muted">Copyright &copy; Richfield Chairs <script>
+                        document.write(new Date().getFullYear());</script>.</div>
+                    <div>
+                        <a href="../terms.html">Privacy Policy</a>
+                        &middot;
+                        <a href="../terms.html">Terms &amp; Conditions</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script src="js/scripts.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+<script src="assets/demo/chart-area-demo.js"></script>
+<script src="assets/demo/chart-bar-demo.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+<script src="js/datatables-simple-demo.js"></script>
+</body>
+</html>
